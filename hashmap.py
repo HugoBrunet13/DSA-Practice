@@ -13,7 +13,7 @@ class hashmap :
     def get_val(self, key, val):
         return True
 
-    def del_val(self, key, val):
+    def del_val(self, key, val):     
         return True
 
 
