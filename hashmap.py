@@ -1,24 +1,71 @@
-class hashmap :
+class Hashmap :
 
     def __init__(self, size):
         self.size = size
-        self.hashmap = [[] for i in range(size)]
+        self.map = [None] * size  
+
+    def __str__(self):
+        return str(self.map)
+
+    def _get_hash(self, key):
+        hash = 0
+        for char in key:
+            hash += ord(char)
+        return hash % self.size
+
 
     def set_val(self, key, val):
         #get hashed key
-        hashed_key = hash(key, )
+        key_hash = self._get_hash(key)
+        key_value = [key, val]
 
-        return True
+        if self.map[key_hash] is None:
+            self.map[key_hash] = [key_value] ## initial the list of [key,value]
+        else:
+            for pair in self.map[key_hash]:
+                if pair[0] == key:
+                    pair[1] = val
+                    return True
+            self.map[key_hash].append(key_value)
+            return True
 
-    def get_val(self, key, val):
-        return True
+    def get_val(self, key):
+        key_hash = self._get_hash(key)
+        if self.map[key_hash] is None:
+            return False
+        else:
+            for pair in self.map[key_hash]:
+                if pair[0] == key:
+                    return pair[1]
 
-    def del_val(self, key, val):     
-        return True
+
+    def del_val(self, key):     
+        key_hash = self._get_hash(key)
+        if self.map[key_hash] is None:
+            return False
+        else:
+            for i in range(0, self.size):
+                if self.map[key_hash][i][0] == key:
+                    self.map[key_hash].pop(i)
+                    return True
 
 
+hashmap = Hashmap(5)
+print(hashmap)
+
+hashmap.set_val('hugo', 3)
+hashmap.set_val('bim', 12)
+hashmap.set_val('def', 1235)
+hashmap.set_val('beo', 888)
 
 
+print(hashmap)
+
+print(hashmap.get_val('def'))
+
+hashmap.del_val('grejjh')
+hashmap.del_val('beo')
+print(hashmap)
 
 
 

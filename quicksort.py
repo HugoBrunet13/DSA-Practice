@@ -1,67 +1,29 @@
-
 # Python3 implementation of QuickSort
 
-# This Function handles sorting part of quick sort
-# start and end points to first and last element of
-# an array respectively
-def partition(start, end, array):
-    print('In partition: \n Array => %s, start: %s, end: %s' % (array, start, end))
-    # Initializing pivot's index to start
-    pivot_index = start
-    pivot = array[pivot_index]
-
-    print("pivot_index: %s, pivot: %s" %(pivot_index, pivot))
+#Best	O(n*log n)
+# Worst	O(n2)
+#Average	O(n*log n)
 
 
-    # This loop runs till start pointer crosses
-    # end pointer, and when it does we swap the
-    # pivot with element on end pointer
-    while start < end:
+def quicksort(sequence) :
+    if len(sequence) < 1:
+        return sequence
+    else:
+        pivot = sequence.pop()  # use last elements of sequence as the pivot
 
-        # Increment the start pointer till it finds an
-        # element greater than pivot
-        while start < len(array) and array[start] <= pivot:
-            start += 1
-
-        # Decrement the end pointer till it finds an
-        # element less than pivot
-        while array[end] > pivot:
-            end -= 1
-
-        # If start and end have not crossed each other,
-        # swap the numbers on start and end
-        if(start < end):
-            array[start], array[end] = array[end], array[start]
-
-    # Swap pivot element with element on end pointer.
-    # This puts pivot on its correct sorted place.
-    array[end], array[pivot_index] = array[pivot_index], array[end]
-
-    # Returning end pointer to divide the array into 2
-    return end
-
-# The main function that implements QuickSort
+    items_lower = []            # list to store items lower than pivot
+    items_greater = []          # list to store items greater than pivot
 
 
-def quick_sort(start, end, array):
-    print('In quick sort: \n Array => %s, start: %s, end: %s' % (array, start, end))
-    if (start < end):
-
-        # p is partitioning index, array[p]
-        # is at right place
-        p = partition(start, end, array)
-        print("p: %s" % p)
-
-        # Sort elements before partition
-        # and after partition
-        quick_sort(start, p - 1, array)
-        quick_sort(p + 1, end, array)
+    for item in sequence:
+        if item > pivot:
+            items_greater.append(item)
+        else:
+            items_lower.append(item)
+    
+    return quicksort(items_lower) + [pivot] + quicksort(items_greater)
 
 
-# Driver code
-array = [10, 7, 8, 9, 1, 5]
-quick_sort(0, len(array) - 1, array)
+test = [1,2,6,3,7,9,5,3,6,7,3,3,5,3,22,3,4,5,6,7,8,12,4,5,55,5,1,0]
 
-print(f'Sorted array: {array}')
-
-# This code is contributed by Adnan Aliakbar
+print(quicksort(test))
