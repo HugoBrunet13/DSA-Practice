@@ -22,4 +22,4 @@ def ispangram(string):
 test = "the quick brown fox jumps over the lazy dog"
 
 missing_letters(test)
-print(ispangram(test))
+# print(ispangram(test))

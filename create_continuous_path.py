@@ -10,7 +10,7 @@
 # Then your implementation should sort it such:
 # [(11, 9), (9, 4), (4, 5), (5, 1)]
 
-
+# one that start point is not a ending any other point
 def get_start(points):
     print(points)
     for i in points:

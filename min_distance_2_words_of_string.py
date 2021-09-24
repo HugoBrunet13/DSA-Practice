@@ -34,7 +34,7 @@ def distance(string, w1, w2):
     return min_dist
 
 
-s = "geeks for geeks contribute test geeks tesh blbabla practice bla bla bla geeks test7 practice"
+s = "yo yo yo yo geeks for geeks contribute test geeks tesh blbabla practice bla bla bla geeks test7 practice"
 w1 = "geeks"
 w2 = "practice"
 print(distance(s, w1, w2))

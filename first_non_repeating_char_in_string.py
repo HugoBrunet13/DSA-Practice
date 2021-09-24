@@ -1,4 +1,5 @@
-from collections import Counter
+from collections import Counter, defaultdict
+
 import datetime
 
 def get_first_non_repeating_char_optimized(string) :
@@ -31,3 +32,9 @@ start=datetime.datetime.now()
 print(get_first_non_repeating_char_optimized(string))
 end=datetime.datetime.now()
 print("exec time: %s"%(end - start))
+
+
+
+a = [1,2,3.5,6,2,8,4,7,9,3]
+
+print(defaultdict(int))

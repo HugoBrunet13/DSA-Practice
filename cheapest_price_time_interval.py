@@ -2,7 +2,6 @@
 
 def find_cheapest_price_time_interval(intervals):
 
-
     startTimes = [i[0] for i in intervals]
     endTimes = [i[1] for i in intervals]
 

@@ -1,5 +1,7 @@
 import sys
 
+
+# O(n)
 def get_second_smallest_element(array) :
     if len(array) < 2:
         return False

@@ -24,3 +24,6 @@ def fibonacci_bottom_up(n):
     return res[n]
 
 print(fibonacci_bottom_up(10000))
+
+
+

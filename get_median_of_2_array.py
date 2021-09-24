@@ -1,7 +1,7 @@
 
 def get_median_2_array_bad(arr1, arr2):
     arr3 = arr1 + arr2
-    arr3.sort()
+    arr3.sort()  #nlog(n)
 
     if len(arr3) % 2 == 0:
         mid = len(arr3) // 2

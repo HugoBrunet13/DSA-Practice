@@ -58,7 +58,8 @@ def primeFactors(n):
         n = n/2
 
     print(n) # n is odd
-
+    # Every composite number has at least one prime factor less than or equal to square root of itself. 
+    
     for i in range(3, int(math.sqrt(n)), 2):
         while n % i == 0:
             factors.append(i)

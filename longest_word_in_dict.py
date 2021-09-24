@@ -42,7 +42,6 @@ def findLongestString(words, string):
         if (length < len(word) and isSubSequence(word, str1)):
             result = word
             length = len(word)
-    print('here')
     # Return longest string
     return result
  
