@@ -19,7 +19,7 @@ def ispangram(string):
     print(alphabet)
     return set(string.lower()) >= alphabet
 
-test = "the quick brown fox jumps over the lay dog"
+test = "the quick brown fox jumps over the lazy dog"
 
 missing_letters(test)
 print(ispangram(test))

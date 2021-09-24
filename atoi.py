@@ -31,6 +31,8 @@ def myAtoi(string):
     return res * sign
 
 
+print(ord("3"))
+print(ord("0"))
 
 
 print(myAtoi('-100'))

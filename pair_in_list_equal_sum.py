@@ -13,21 +13,17 @@ from collections import Counter
 
 def getPairsCount(arr, n, target):
     print(arr, target)
-    counter = dict(Counter(arr))
-    print(counter)
     cpt = 0
+    res = []
     for val in arr:
-        print('\n',val)
         complement = target - val
-        print("complement: ", complement, "  counter[complement]: ", counter[complement])
-        if counter[complement] and counter[complement] > 0:
+        if complement in arr and {complement, val} not in res:
+            res.append({val, complement})
+            print(res)
             cpt +=1
-            counter[complement] -= 1
-            # counter[val] -= 1
-        print(counter)
     return cpt
 
-
+    
 # Driver function
 arr = [1, 5, 7, -1, 5]
 n = len(arr)

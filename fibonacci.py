@@ -11,23 +11,16 @@ def fibonacci_rec(n):
     else:
         return fibonacci_rec(n-1) + fibonacci_rec(n-2)
 
-print(fibonacci_rec(4))
+# print(fibonacci_rec(4))
 
-def fibonacci(n):
-    a = 0
-    b = 1
-    if n <= 0:  
-        return False
-    if n == 1:
-        return 0
-    elif n == 2:
+def fibonacci_bottom_up(n):
+    if n == 1 or n == 2:
         return 1
-    else:
-        for _ in range(2, n):
-            c = a + b
-            a = b
-            b = c
-        return b
+    res = [None] * (n +1)
+    res[1]=1
+    res[2]=1
+    for i in range(3, n+1):
+        res[i]= res[i-1]+res[i-2]
+    return res[n]
 
-
-print(fibonacci(40))
+print(fibonacci_bottom_up(10000))
